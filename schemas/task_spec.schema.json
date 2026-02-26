@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/pactbridge/task_spec.schema.json",
+  "title": "PactBridge Task Specification",
+  "type": "object",
+  "required": [
+    "task_id",
+    "jurisdiction_code",
+    "purpose",
+    "location_scope",
+    "time_window",
+    "actions_allowed",
+    "actions_prohibited",
+    "evidence_required",
+    "compensation"
+  ],
+  "properties": {
+    "task_id": { "type": "string", "minLength": 3 },
+    "jurisdiction_code": { "type": "string", "minLength": 2 },
+    "purpose": { "type": "string", "minLength": 10 },
+    "location_scope": {
+      "type": "object",
+      "required": ["country", "city", "detail"],
+      "properties": {
+        "country": { "type": "string" },
+        "city": { "type": "string" },
+        "detail": { "type": "string", "minLength": 3 }
+      },
+      "additionalProperties": false
+    },
+    "time_window": {
+      "type": "object",
+      "required": ["start_at", "end_at", "timezone"],
+      "properties": {
+        "start_at": { "type": "string", "format": "date-time" },
+        "end_at": { "type": "string", "format": "date-time" },
+        "timezone": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "actions_allowed": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 2 },
+      "minItems": 1
+    },
+    "actions_prohibited": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 2 },
+      "minItems": 1
+    },
+    "evidence_required": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["photo", "video", "receipt", "signature", "geo_proof"]
+      },
+      "minItems": 1
+    },
+    "compensation": {
+      "type": "object",
+      "required": ["amount", "currency", "settlement_rule"],
+      "properties": {
+        "amount": { "type": "number", "minimum": 0 },
+        "currency": { "type": "string", "minLength": 3, "maxLength": 3 },
+        "settlement_rule": { "type": "string", "minLength": 3 }
+      },
+      "additionalProperties": false
+    },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,31 @@
+{
+  "task_id": "PB-2026-0001",
+  "jurisdiction_code": "KR-SEOUL",
+  "purpose": "Visit a designated location and verify whether posted office hours match public listing.",
+  "location_scope": {
+    "country": "KR",
+    "city": "Seoul",
+    "detail": "Jongno-gu, building entrance board"
+  },
+  "time_window": {
+    "start_at": "2026-03-01T09:00:00+09:00",
+    "end_at": "2026-03-01T12:00:00+09:00",
+    "timezone": "Asia/Seoul"
+  },
+  "actions_allowed": [
+    "Take front-facing photos of public signage",
+    "Submit text summary"
+  ],
+  "actions_prohibited": [
+    "Enter restricted areas",
+    "Capture personal faces",
+    "Interact with private documents"
+  ],
+  "evidence_required": ["photo", "geo_proof"],
+  "compensation": {
+    "amount": 15000,
+    "currency": "KRW",
+    "settlement_rule": "Escrow release after evidence verification"
+  },
+  "notes": "Public area only. No direct interaction required."
+}

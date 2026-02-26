@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/pactbridge/risk_assessment.schema.json",
+  "title": "PactBridge Risk Assessment Output",
+  "type": "object",
+  "required": [
+    "task_id",
+    "risk_level",
+    "decision",
+    "confidence",
+    "reason_codes",
+    "required_controls",
+    "policy_version",
+    "prompt_version"
+  ],
+  "properties": {
+    "task_id": { "type": "string" },
+    "risk_level": { "type": "string", "enum": ["red", "yellow", "green"] },
+    "decision": {
+      "type": "string",
+      "enum": ["allow", "allow_with_controls", "deny", "escalate"]
+    },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "SPEC_INCOMPLETE",
+          "ID_UNVERIFIED",
+          "LOCATION_SENSITIVE",
+          "TIME_CRITICAL",
+          "PRIVACY_RISK",
+          "SAFETY_HAZARD",
+          "LEGAL_UNCERTAINTY",
+          "PAYMENT_AMBIGUOUS"
+        ]
+      }
+    },
+    "required_controls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "id_check",
+          "escrow",
+          "double_confirmation",
+          "limited_scope",
+          "supervisor_review",
+          "enhanced_evidence",
+          "human_approval_gate"
+        ]
+      }
+    },
+    "jurisdiction_code": { "type": "string" },
+    "policy_version": { "type": "string" },
+    "prompt_version": { "type": "string" },
+    "notes": { "type": "string" }
+  },
+  "additionalProperties": false
+}

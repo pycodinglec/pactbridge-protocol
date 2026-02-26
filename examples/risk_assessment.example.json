@@ -1,0 +1,12 @@
+{
+  "task_id": "PB-2026-0001",
+  "risk_level": "yellow",
+  "decision": "allow_with_controls",
+  "confidence": 0.83,
+  "reason_codes": ["LOCATION_SENSITIVE", "PRIVACY_RISK"],
+  "required_controls": ["limited_scope", "enhanced_evidence", "double_confirmation"],
+  "jurisdiction_code": "KR-SEOUL",
+  "policy_version": "kr-seoul-v0.1.0",
+  "prompt_version": "safety-counsel-v0.1.0",
+  "notes": "Proceed only in public zones and blur incidental faces before submission."
+}
