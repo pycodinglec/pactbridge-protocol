@@ -5,6 +5,8 @@
 
 Author: **KYUHO LEE (pycodinglec)**
 
+Language: **EN** | [**KO (한국어)**](./README.ko.md)
+
 ---
 
 ## Why the name “PactBridge”? / 왜 이름이 “PactBridge”인가?
